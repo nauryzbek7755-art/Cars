@@ -237,9 +237,10 @@ def src(img,fi=0):
         cache[img]=Image.fromarray((grade(np.asarray(im))*255+0.5).astype(np.uint8))
     return cache[img]
 CAM=CFG.get('cam',{})
-def view(img,w,h,p,z0,z1,dx,rot,shake=(0,0),punch=0.0,fi=0,cxo=None):
+def view(img,w,h,p,z0,z1,dx,rot,shake=(0,0),punch=0.0,fi=0,cxo=None,cyo=None):
     im=src(img,fi); Ws,Hs=im.size; cx,cy=CAM.get(img.split(':')[1] if img.startswith('V:') else img,[0.5,0.55])[:2]
     if cxo is not None: cx=cxo
+    if cyo is not None: cy=cyo
     e=p*p*(3-2*p)*0.6+p*0.4; z=(z0+(z1-z0)*e)*(1+punch)
     ar=w/h; ch=Hs/z; cw=ch*ar
     if cw>Ws/z: cw=Ws/z; ch=cw/ar
@@ -257,7 +258,7 @@ for i,ln in enumerate(L):
     for sp_ in CFG['shots'][str(i)]:
         img,wi=sp_[0],sp_[1]
         s=0.0 if (i==0 and wi==0 and not EDL) else (ws(i,wi)-0.08 if wi>0 else ln['start']-0.12)
-        EDL.append(dict(img=img,s=max(0,s),cx=(sp_[2] if len(sp_)>2 and sp_[2] is not None else None),fit=(len(sp_)>3 and sp_[3]=='fit')))
+        EDL.append(dict(img=img,s=max(0,s),cx=(sp_[2] if len(sp_)>2 and sp_[2] is not None else None),fit=(len(sp_)>3 and sp_[3]=='fit'),cy=(sp_[4] if len(sp_)>4 else None),zz=(sp_[5] if len(sp_)>5 else None)))
 # hook: rapid cuts inside first line if configured
 EDL.sort(key=lambda c:c['s'])
 for k,c in enumerate(EDL): c['e']=EDL[k+1]['s'] if k+1<len(EDL) else T
@@ -270,6 +271,7 @@ for k,c in enumerate(EDL):
     else:
         r=k%4
         c['z0'],c['z1'],c['dx'],c['rot']=[(1.0,1.2,0.06,1.6),(1.22,1.02,-0.07,-1.6),(1.05,1.25,-0.05,1.2),(1.2,1.04,0.08,-1.2)][r]
+    if c.get('zz'): c['z0'],c['z1']=c['zz']
     c['wh']= k>0 and EDL[k-1]['img']!=c['img']
 json.dump(EDL,open(f'{D}/edl.json','w'),indent=1)
 VGRADE="eq=brightness=-0.035:contrast=1.14:saturation=0.9:gamma=0.93,colorbalance=rs=-0.04:gs=0.0:bs=0.05:rh=0.04:gh=0.015:bh=-0.03,vignette=PI/5"
@@ -387,7 +389,7 @@ def shot(c,t):
     p=min(max((t-c['s'])/max(c['e']-c['s'],1e-3),0),1)
     punch=0.14*(1-(t-c['s'])/0.2) if 0<=t-c['s']<0.2 else 0
     if c.get('fit'): return fitframe(c,t,p,punch)
-    return view(c['img'],W,H,p,c['z0'],c['z1'],c['dx'],c['rot'],shake(t),punch,fi=int((t-c['s'])*FPS),cxo=c.get('cx'))
+    return view(c['img'],W,H,p,c['z0'],c['z1'],c['dx'],c['rot'],shake(t),punch,fi=int((t-c['s'])*FPS),cxo=c.get('cx'),cyo=c.get('cy'))
 def rgb_split(fr,amt):
     k=int(amt)
     if k<1: return fr
