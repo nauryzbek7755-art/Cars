@@ -21,12 +21,12 @@ CAM={
 def grade(a):
     a=a.astype(np.float32)/255.0
     L=(0.2126*a[...,0]+0.7152*a[...,1]+0.0722*a[...,2])[...,None]
-    a=L+(a-L)*0.88                                   # slight desaturation
-    a=np.clip(a,0,1); a=a*(1-0.35)+0.35*(a*a*(3-2*a))  # S-curve
+    a=a*0.84; a=L*0.84+(a-L*0.84)*0.80                                   # slight desaturation
+    a=np.clip(a,0,1); a=a*(1-0.55)+0.55*(a*a*(3-2*a)); a=a**1.12  # S-curve
     L=(0.2126*a[...,0]+0.7152*a[...,1]+0.0722*a[...,2])[...,None]
     sh=(1-L)**2; hi=L**2
-    a=a+sh*np.array([-0.035,0.005,0.03],np.float32)+hi*np.array([0.035,0.012,-0.03],np.float32)  # teal shadows / warm highlights
-    a=0.018+a*0.972                                   # filmic matte blacks
+    a=a+sh*np.array([-0.045,0.008,0.045],np.float32)+hi*np.array([0.045,0.018,-0.035],np.float32)  # teal shadows / warm highlights
+    a=0.012+a*0.975                                   # filmic matte blacks
     return np.clip(a,0,1)
 cache={}
 def src(img,fi=0):
@@ -70,7 +70,7 @@ if MODE=='preview':
 # ---------- full render ----------
 yy,xx=np.mgrid[0:H,0:W].astype(np.float32)
 r=np.sqrt(((xx-W/2)/(W*0.62))**2+((yy-H/2)/(H*0.60))**2)
-vig=np.clip(1-0.55*np.clip(r-0.55,0,1)**1.6,0,1)[...,None].astype(np.float32)
+vig=np.clip(1-0.75*np.clip(r-0.45,0,1)**1.4,0,1)[...,None].astype(np.float32)
 rng=np.random.default_rng(7)
 grains=[]
 for k in range(6):
@@ -103,7 +103,7 @@ def whipblur(a,amt):
     n=6; acc=np.zeros_like(a)
     for i in range(n): acc+=np.roll(a,int(amt*i/n),axis=1)
     return acc/n
-out=f'{S}/video_noaudio.mp4'
+out=f'{S}/video_dark.mp4'
 N=int(TL['total']*FPS)
 ff=subprocess.Popen(['ffmpeg','-y','-v','error','-f','rawvideo','-pix_fmt','rgb24','-s',f'{W}x{H}','-r',str(FPS),'-i','-',
     '-c:v','libx264','-preset','medium','-crf','16','-pix_fmt','yuv420p',out],stdin=subprocess.PIPE)

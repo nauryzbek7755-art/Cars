@@ -1,6 +1,6 @@
 # Bugatti Veyron — TikTok documentary (FR) — credits & sources
 
-**File:** `bugatti_veyron.mp4` · 1080×1920 (9:16) · 30 fps · H.264 + AAC · 57.8 s
+**Files:** `bugatti_final.mp4` (final, dark grade) and `bugatti_veyron.mp4` (first cut) · 1080×1920 (9:16) · 30 fps · H.264 + AAC · 57.8 s
 
 ## Licence of this video
 This video is a derivative work of the CC BY-SA images and videos listed below. It is therefore distributed under

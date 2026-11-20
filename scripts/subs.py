@@ -63,7 +63,7 @@ for ln in TL['lines']:
             for xj,x in enumerate(ch):
                 c=GOLD if xj==wi else WHITE
                 parts.append(f"{{\\c{c}}}{x['d']}")
-            anim="{\\fscx88\\fscy88\\t(0,90,\\fscx100\\fscy100)}" if wi==0 else ""
+            anim="{\\fscx70\\fscy70\\alpha&HFF&\\blur6\\t(0,90,\\fscx108\\fscy108\\alpha&H00&\\blur0)\\t(90,170,\\fscx100\\fscy100)}" if wi==0 else ""
             ev.append(f"Dialogue: 2,{ts(st)},{ts(en)},Sub,,0,0,0,,{{\\pos(540,{SUBY})}}{anim}"+' '.join(parts))
 L=TL['lines']
 def W(i,k): return L[i]['words'][k]['s']
