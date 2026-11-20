@@ -157,7 +157,7 @@ if CMD=='music':
 if CMD=='subs':
     def tss(t):
         t=max(t,0); return f"0:{int(t//60):02d}:{t%60:05.2f}"
-    MAP=CFG.get('map',{})
+    MAP={'kilomètres-heure':'KM/H','newton-mètres':'NM',**CFG.get('map',{})}
     ACC=CFG.get('accent_ass','&H0045C8FF&'); WHITE='&H00FFFFFF&'
     keys=[k.upper() for k in CFG.get('keywords',[])]
     def kcol(w):
