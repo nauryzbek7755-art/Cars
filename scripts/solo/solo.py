@@ -257,7 +257,7 @@ for i,ln in enumerate(L):
     for sp_ in CFG['shots'][str(i)]:
         img,wi=sp_[0],sp_[1]
         s=0.0 if (i==0 and wi==0 and not EDL) else (ws(i,wi)-0.08 if wi>0 else ln['start']-0.12)
-        EDL.append(dict(img=img,s=max(0,s),cx=(sp_[2] if len(sp_)>2 else None)))
+        EDL.append(dict(img=img,s=max(0,s),cx=(sp_[2] if len(sp_)>2 and sp_[2] is not None else None),fit=(len(sp_)>3 and sp_[3]=='fit')))
 # hook: rapid cuts inside first line if configured
 EDL.sort(key=lambda c:c['s'])
 for k,c in enumerate(EDL): c['e']=EDL[k+1]['s'] if k+1<len(EDL) else T
@@ -317,7 +317,8 @@ def pop(dt,dur=0.13,over=1.28):
     return 1.0
 def count_text(txt,prog):
     m=re.match(r'^([^\d]*)([\d\s]+[\d])(.*)$',txt)
-    if not m or prog>=1: return txt
+    if not m or prog>=1 or re.search(r'(19|20)\d\d',txt) or '<' in txt: return txt
+    if m.group(1).strip() not in ('','≈') or m.group(3).strip().replace('+','').strip() not in ('','CH','KM/H','NM','S','L','TR/MIN'): return txt
     num=int(m.group(2).replace(' ','')); v=int(num*prog)
     s=f'{v:,}'.replace(',',' ') if ' ' in m.group(2) else str(v)
     return m.group(1)+s+m.group(3)
@@ -360,9 +361,32 @@ def shake(t):
         d_=t-tt
         if 0<=d_<0.32: a=(1-d_/0.32)**2*20; sx+=a*math.sin(t*97); sy+=a*math.cos(t*71)
     return (sx,sy)
+FITBG={}
+def fitframe(c,t,p,punch):
+    img=c['img']; im=src(img,int((t-c['s'])*FPS))
+    key=img if not img.startswith('V:') else None
+    if key not in FITBG or key is None:
+        b=im.resize((W//4,int(W//4*im.height/im.width))) if im.width/im.height>W/H else im.resize((int(H//4*im.width/im.height),H//4))
+        bw,bh=b.size; sc=max(W/4/bw,H/4/bh); b=b.resize((int(bw*sc)+1,int(bh*sc)+1)); b=b.crop((0,0,W//4,H//4)).filter(ImageFilter.GaussianBlur(6)).resize((W,H),Image.BILINEAR)
+        bg=np.asarray(b,np.float32)/255*0.38
+        if key: FITBG[key]=bg
+    else: bg=FITBG[key]
+    e=p*p*(3-2*p)*0.6+p*0.4; z=(1.12+0.14*e)*(1+punch)
+    fw=int(W*z); fh=int(fw*im.height/im.width)
+    fg=np.asarray(im.resize((fw,fh),Image.BICUBIC),np.float32)/255
+    out=bg.copy(); x0=(fw-W)//2+int((e-0.5)*0.06*fw); y0=int(H*0.47-fh/2)
+    sx0=max(0,x0); sx1=min(fw,x0+W); dy0=max(0,y0); dy1=min(H,y0+fh)
+    out[dy0:dy1,:sx1-sx0]=fg[dy0-y0:dy1-y0,sx0:sx1]
+    # soft edges top/bottom
+    for k in range(18):
+        a=k/18
+        if 0<=dy0+k<H: out[dy0+k]=out[dy0+k]*a+bg[dy0+k]*(1-a)
+        if 0<=dy1-1-k<H: out[dy1-1-k]=out[dy1-1-k]*a+bg[dy1-1-k]*(1-a)
+    return out
 def shot(c,t):
     p=min(max((t-c['s'])/max(c['e']-c['s'],1e-3),0),1)
     punch=0.14*(1-(t-c['s'])/0.2) if 0<=t-c['s']<0.2 else 0
+    if c.get('fit'): return fitframe(c,t,p,punch)
     return view(c['img'],W,H,p,c['z0'],c['z1'],c['dx'],c['rot'],shake(t),punch,fi=int((t-c['s'])*FPS),cxo=c.get('cx'))
 def rgb_split(fr,amt):
     k=int(amt)
