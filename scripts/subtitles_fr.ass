@@ -1,0 +1,180 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Sub,Inter ExtraBold,82,&H00FFFFFF,&H00FFFFFF,&H00000000,&H96000000,-1,0,0,0,100,100,1,0,1,5,3,5,110,110,0,1
+Style: Label,Inter SemiBold,38,&H0045C8FF,&H00FFFFFF,&H00000000,&H64000000,-1,0,0,0,100,100,9,0,1,0,2,5,60,60,0,1
+Style: Big,Inter ExtraBold,128,&H00FFFFFF,&H00FFFFFF,&H00000000,&H78000000,-1,0,0,0,100,100,2,0,1,0,4,5,60,60,0,1
+Style: Small,Inter,34,&H00D0D0D0,&H00FFFFFF,&H00000000,&H64000000,0,0,0,0,100,100,1,0,1,0,1,5,60,60,0,1
+Style: Bar,Inter,10,&H0045C8FF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 2,0:00:00.20,0:00:00.51,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}MILLE {\c&H00FFFFFF&}ET {\c&H00FFFFFF&}UN {\c&H00FFFFFF&}CHEVAUX.
+Dialogue: 2,0:00:00.51,0:00:00.59,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}MILLE {\c&H0045C8FF&}ET {\c&H00FFFFFF&}UN {\c&H00FFFFFF&}CHEVAUX.
+Dialogue: 2,0:00:00.59,0:00:00.67,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}MILLE {\c&H00FFFFFF&}ET {\c&H0045C8FF&}UN {\c&H00FFFFFF&}CHEVAUX.
+Dialogue: 2,0:00:00.67,0:00:01.87,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}MILLE {\c&H00FFFFFF&}ET {\c&H00FFFFFF&}UN {\c&H0045C8FF&}CHEVAUX.
+Dialogue: 2,0:00:01.87,0:00:02.08,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}PLUS {\c&H00FFFFFF&}DE {\c&H00FFFFFF&}400 KM/H.
+Dialogue: 2,0:00:02.08,0:00:02.21,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}PLUS {\c&H0045C8FF&}DE {\c&H00FFFFFF&}400 KM/H.
+Dialogue: 2,0:00:02.21,0:00:03.65,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}PLUS {\c&H00FFFFFF&}DE {\c&H0045C8FF&}400 KM/H.
+Dialogue: 2,0:00:03.75,0:00:03.96,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}ET {\c&H00FFFFFF&}UN {\c&H00FFFFFF&}DÉFI
+Dialogue: 2,0:00:03.96,0:00:04.02,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}ET {\c&H0045C8FF&}UN {\c&H00FFFFFF&}DÉFI
+Dialogue: 2,0:00:04.02,0:00:04.27,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}ET {\c&H00FFFFFF&}UN {\c&H0045C8FF&}DÉFI
+Dialogue: 2,0:00:04.27,0:00:04.46,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}QUE {\c&H00FFFFFF&}BEAUCOUP
+Dialogue: 2,0:00:04.46,0:00:04.71,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}QUE {\c&H0045C8FF&}BEAUCOUP
+Dialogue: 2,0:00:04.71,0:00:04.99,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}JUGEAIENT
+Dialogue: 2,0:00:04.99,0:00:05.94,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}IMPOSSIBLE.
+Dialogue: 2,0:00:06.28,0:00:06.49,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}EN {\c&H00FFFFFF&}1998,
+Dialogue: 2,0:00:06.49,0:00:07.87,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}EN {\c&H0045C8FF&}1998,
+Dialogue: 2,0:00:07.87,0:00:08.47,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}VOLKSWAGEN {\c&H00FFFFFF&}RACHÈTE
+Dialogue: 2,0:00:08.47,0:00:08.77,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}VOLKSWAGEN {\c&H0045C8FF&}RACHÈTE
+Dialogue: 2,0:00:08.77,0:00:09.53,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}BUGATTI,
+Dialogue: 2,0:00:09.53,0:00:09.87,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}AVEC {\c&H00FFFFFF&}UNE {\c&H00FFFFFF&}AMBITION
+Dialogue: 2,0:00:09.87,0:00:09.99,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}AVEC {\c&H0045C8FF&}UNE {\c&H00FFFFFF&}AMBITION
+Dialogue: 2,0:00:09.99,0:00:10.33,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}AVEC {\c&H00FFFFFF&}UNE {\c&H0045C8FF&}AMBITION
+Dialogue: 2,0:00:10.33,0:00:11.01,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}FOLLE :
+Dialogue: 2,0:00:11.11,0:00:11.42,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}CRÉER {\c&H00FFFFFF&}LA {\c&H00FFFFFF&}VOITURE
+Dialogue: 2,0:00:11.42,0:00:11.52,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}CRÉER {\c&H0045C8FF&}LA {\c&H00FFFFFF&}VOITURE
+Dialogue: 2,0:00:11.52,0:00:11.79,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}CRÉER {\c&H00FFFFFF&}LA {\c&H0045C8FF&}VOITURE
+Dialogue: 2,0:00:11.79,0:00:11.98,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}DE {\c&H00FFFFFF&}SÉRIE {\c&H00FFFFFF&}LA {\c&H00FFFFFF&}PLUS
+Dialogue: 2,0:00:11.98,0:00:12.25,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}DE {\c&H0045C8FF&}SÉRIE {\c&H00FFFFFF&}LA {\c&H00FFFFFF&}PLUS
+Dialogue: 2,0:00:12.25,0:00:12.36,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}DE {\c&H00FFFFFF&}SÉRIE {\c&H0045C8FF&}LA {\c&H00FFFFFF&}PLUS
+Dialogue: 2,0:00:12.36,0:00:12.49,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}DE {\c&H00FFFFFF&}SÉRIE {\c&H00FFFFFF&}LA {\c&H0045C8FF&}PLUS
+Dialogue: 2,0:00:12.49,0:00:12.85,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}RAPIDE {\c&H00FFFFFF&}DU {\c&H00FFFFFF&}MONDE.
+Dialogue: 2,0:00:12.85,0:00:12.95,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}RAPIDE {\c&H0045C8FF&}DU {\c&H00FFFFFF&}MONDE.
+Dialogue: 2,0:00:12.95,0:00:13.56,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}RAPIDE {\c&H00FFFFFF&}DU {\c&H0045C8FF&}MONDE.
+Dialogue: 2,0:00:13.81,0:00:14.02,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}EN {\c&H00FFFFFF&}2005,
+Dialogue: 2,0:00:14.02,0:00:14.89,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}EN {\c&H0045C8FF&}2005,
+Dialogue: 2,0:00:14.89,0:00:15.10,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}LA {\c&H00FFFFFF&}VEYRON {\c&H00FFFFFF&}16.4 {\c&H00FFFFFF&}NAÎT
+Dialogue: 2,0:00:15.10,0:00:15.35,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}LA {\c&H0045C8FF&}VEYRON {\c&H00FFFFFF&}16.4 {\c&H00FFFFFF&}NAÎT
+Dialogue: 2,0:00:15.35,0:00:15.87,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}LA {\c&H00FFFFFF&}VEYRON {\c&H0045C8FF&}16.4 {\c&H00FFFFFF&}NAÎT
+Dialogue: 2,0:00:15.87,0:00:15.94,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}LA {\c&H00FFFFFF&}VEYRON {\c&H00FFFFFF&}16.4 {\c&H0045C8FF&}NAÎT
+Dialogue: 2,0:00:15.94,0:00:16.06,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}À {\c&H00FFFFFF&}MOLSHEIM,
+Dialogue: 2,0:00:16.06,0:00:16.71,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}À {\c&H0045C8FF&}MOLSHEIM,
+Dialogue: 2,0:00:16.71,0:00:16.82,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}EN {\c&H00FFFFFF&}ALSACE.
+Dialogue: 2,0:00:16.82,0:00:17.70,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}EN {\c&H0045C8FF&}ALSACE.
+Dialogue: 2,0:00:17.79,0:00:18.14,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}SEIZE {\c&H00FFFFFF&}CYLINDRES.
+Dialogue: 2,0:00:18.14,0:00:19.41,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}SEIZE {\c&H0045C8FF&}CYLINDRES.
+Dialogue: 2,0:00:19.41,0:00:19.76,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}QUATRE {\c&H00FFFFFF&}TURBOS.
+Dialogue: 2,0:00:19.76,0:00:20.96,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}QUATRE {\c&H0045C8FF&}TURBOS.
+Dialogue: 2,0:00:20.96,0:00:21.21,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}HUIT {\c&H00FFFFFF&}LITRES
+Dialogue: 2,0:00:21.21,0:00:21.41,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}HUIT {\c&H0045C8FF&}LITRES
+Dialogue: 2,0:00:21.41,0:00:21.60,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}DE {\c&H00FFFFFF&}CYLINDRÉE.
+Dialogue: 2,0:00:21.60,0:00:22.38,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}DE {\c&H0045C8FF&}CYLINDRÉE.
+Dialogue: 2,0:00:22.48,0:00:22.69,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}ET {\c&H00FFFFFF&}DIX {\c&H00FFFFFF&}RADIATEURS
+Dialogue: 2,0:00:22.69,0:00:22.84,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}ET {\c&H0045C8FF&}DIX {\c&H00FFFFFF&}RADIATEURS
+Dialogue: 2,0:00:22.84,0:00:23.34,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}ET {\c&H00FFFFFF&}DIX {\c&H0045C8FF&}RADIATEURS
+Dialogue: 2,0:00:23.34,0:00:23.56,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}POUR {\c&H00FFFFFF&}DOMPTER
+Dialogue: 2,0:00:23.56,0:00:23.82,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}POUR {\c&H0045C8FF&}DOMPTER
+Dialogue: 2,0:00:23.82,0:00:24.02,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}SA {\c&H00FFFFFF&}CHALEUR.
+Dialogue: 2,0:00:24.02,0:00:24.78,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}SA {\c&H0045C8FF&}CHALEUR.
+Dialogue: 2,0:00:24.88,0:00:25.31,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}ZÉRO {\c&H00FFFFFF&}À {\c&H00FFFFFF&}CENT
+Dialogue: 2,0:00:25.31,0:00:25.39,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}ZÉRO {\c&H0045C8FF&}À {\c&H00FFFFFF&}CENT
+Dialogue: 2,0:00:25.39,0:00:25.53,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}ZÉRO {\c&H00FFFFFF&}À {\c&H0045C8FF&}CENT
+Dialogue: 2,0:00:25.53,0:00:25.65,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}EN {\c&H00FFFFFF&}DEUX {\c&H00FFFFFF&}SECONDES
+Dialogue: 2,0:00:25.65,0:00:25.82,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}EN {\c&H0045C8FF&}DEUX {\c&H00FFFFFF&}SECONDES
+Dialogue: 2,0:00:25.82,0:00:26.14,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}EN {\c&H00FFFFFF&}DEUX {\c&H0045C8FF&}SECONDES
+Dialogue: 2,0:00:26.14,0:00:26.24,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}ET {\c&H00FFFFFF&}DEMIE.
+Dialogue: 2,0:00:26.24,0:00:26.85,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}ET {\c&H0045C8FF&}DEMIE.
+Dialogue: 2,0:00:26.94,0:00:27.22,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}SUR {\c&H00FFFFFF&}LA {\c&H00FFFFFF&}PISTE
+Dialogue: 2,0:00:27.22,0:00:27.32,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}SUR {\c&H0045C8FF&}LA {\c&H00FFFFFF&}PISTE
+Dialogue: 2,0:00:27.32,0:00:27.59,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}SUR {\c&H00FFFFFF&}LA {\c&H0045C8FF&}PISTE
+Dialogue: 2,0:00:27.59,0:00:28.47,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}D'EHRA-LESSIEN,
+Dialogue: 2,0:00:28.47,0:00:28.66,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}ELLE {\c&H00FFFFFF&}ATTEINT
+Dialogue: 2,0:00:28.66,0:00:28.83,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}ELLE {\c&H0045C8FF&}ATTEINT
+Dialogue: 2,0:00:28.83,0:00:30.51,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}407 KM/H.
+Dialogue: 2,0:00:31.05,0:00:31.26,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}EN {\c&H00FFFFFF&}2010,
+Dialogue: 2,0:00:31.26,0:00:32.15,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}EN {\c&H0045C8FF&}2010,
+Dialogue: 2,0:00:32.15,0:00:32.38,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}LA {\c&H00FFFFFF&}SUPER {\c&H00FFFFFF&}SPORT
+Dialogue: 2,0:00:32.38,0:00:32.72,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}LA {\c&H0045C8FF&}SUPER {\c&H00FFFFFF&}SPORT
+Dialogue: 2,0:00:32.72,0:00:32.92,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}LA {\c&H00FFFFFF&}SUPER {\c&H0045C8FF&}SPORT
+Dialogue: 2,0:00:32.92,0:00:33.02,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}ET {\c&H00FFFFFF&}SES {\c&H00FFFFFF&}1 200 CHEVAUX
+Dialogue: 2,0:00:33.02,0:00:33.15,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}ET {\c&H0045C8FF&}SES {\c&H00FFFFFF&}1 200 CHEVAUX
+Dialogue: 2,0:00:33.15,0:00:33.86,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}ET {\c&H00FFFFFF&}SES {\c&H0045C8FF&}1 200 CHEVAUX
+Dialogue: 2,0:00:33.86,0:00:34.15,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}SIGNENT {\c&H00FFFFFF&}431 KM/H.
+Dialogue: 2,0:00:34.15,0:00:36.03,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}SIGNENT {\c&H0045C8FF&}431 KM/H.
+Dialogue: 2,0:00:36.12,0:00:36.63,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}RECORD {\c&H00FFFFFF&}DU {\c&H00FFFFFF&}MONDE
+Dialogue: 2,0:00:36.63,0:00:36.73,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}RECORD {\c&H0045C8FF&}DU {\c&H00FFFFFF&}MONDE
+Dialogue: 2,0:00:36.73,0:00:36.88,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}RECORD {\c&H00FFFFFF&}DU {\c&H0045C8FF&}MONDE
+Dialogue: 2,0:00:36.88,0:00:37.03,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}DES {\c&H00FFFFFF&}VOITURES
+Dialogue: 2,0:00:37.03,0:00:37.32,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}DES {\c&H0045C8FF&}VOITURES
+Dialogue: 2,0:00:37.32,0:00:37.51,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}DE {\c&H00FFFFFF&}SÉRIE.
+Dialogue: 2,0:00:37.51,0:00:38.13,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}DE {\c&H0045C8FF&}SÉRIE.
+Dialogue: 2,0:00:38.47,0:00:38.74,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}SON {\c&H00FFFFFF&}NOM ?
+Dialogue: 2,0:00:38.74,0:00:39.68,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}SON {\c&H0045C8FF&}NOM ?
+Dialogue: 2,0:00:39.68,0:00:39.90,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}UN {\c&H00FFFFFF&}HOMMAGE
+Dialogue: 2,0:00:39.90,0:00:40.16,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}UN {\c&H0045C8FF&}HOMMAGE
+Dialogue: 2,0:00:40.16,0:00:40.28,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}À {\c&H00FFFFFF&}PIERRE {\c&H00FFFFFF&}VEYRON,
+Dialogue: 2,0:00:40.28,0:00:40.51,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}À {\c&H0045C8FF&}PIERRE {\c&H00FFFFFF&}VEYRON,
+Dialogue: 2,0:00:40.51,0:00:41.07,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}À {\c&H00FFFFFF&}PIERRE {\c&H0045C8FF&}VEYRON,
+Dialogue: 2,0:00:41.07,0:00:41.42,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}VAINQUEUR
+Dialogue: 2,0:00:41.42,0:00:41.57,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}DES {\c&H00FFFFFF&}24 HEURES
+Dialogue: 2,0:00:41.57,0:00:42.06,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}DES {\c&H0045C8FF&}24 HEURES
+Dialogue: 2,0:00:42.06,0:00:42.22,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}DU {\c&H00FFFFFF&}MANS {\c&H00FFFFFF&}EN {\c&H00FFFFFF&}1939.
+Dialogue: 2,0:00:42.22,0:00:42.38,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}DU {\c&H0045C8FF&}MANS {\c&H00FFFFFF&}EN {\c&H00FFFFFF&}1939.
+Dialogue: 2,0:00:42.38,0:00:42.44,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}DU {\c&H00FFFFFF&}MANS {\c&H0045C8FF&}EN {\c&H00FFFFFF&}1939.
+Dialogue: 2,0:00:42.44,0:00:43.73,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}DU {\c&H00FFFFFF&}MANS {\c&H00FFFFFF&}EN {\c&H0045C8FF&}1939.
+Dialogue: 2,0:00:43.93,0:00:44.31,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}SEULEMENT
+Dialogue: 2,0:00:44.31,0:00:46.63,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}450 EXEMPLAIRES.
+Dialogue: 2,0:00:46.63,0:00:46.88,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}LA {\c&H00FFFFFF&}DERNIÈRE,
+Dialogue: 2,0:00:46.88,0:00:47.60,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}LA {\c&H0045C8FF&}DERNIÈRE,
+Dialogue: 2,0:00:47.60,0:00:47.78,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}LA {\c&H00FFFFFF&}FINALE,
+Dialogue: 2,0:00:47.78,0:00:48.41,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}LA {\c&H0045C8FF&}FINALE,
+Dialogue: 2,0:00:48.41,0:00:48.51,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}EST {\c&H00FFFFFF&}DÉVOILÉE
+Dialogue: 2,0:00:48.51,0:00:48.81,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}EST {\c&H0045C8FF&}DÉVOILÉE
+Dialogue: 2,0:00:48.81,0:00:48.95,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}EN {\c&H00FFFFFF&}2015.
+Dialogue: 2,0:00:48.95,0:00:49.91,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}EN {\c&H0045C8FF&}2015.
+Dialogue: 2,0:00:50.41,0:00:50.64,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}LA {\c&H00FFFFFF&}VEYRON {\c&H00FFFFFF&}N'ÉTAIT
+Dialogue: 2,0:00:50.64,0:00:50.88,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}LA {\c&H0045C8FF&}VEYRON {\c&H00FFFFFF&}N'ÉTAIT
+Dialogue: 2,0:00:50.88,0:00:51.07,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}LA {\c&H00FFFFFF&}VEYRON {\c&H0045C8FF&}N'ÉTAIT
+Dialogue: 2,0:00:51.07,0:00:51.27,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}PAS {\c&H00FFFFFF&}QU'UNE {\c&H00FFFFFF&}VOITURE.
+Dialogue: 2,0:00:51.27,0:00:51.45,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}PAS {\c&H0045C8FF&}QU'UNE {\c&H00FFFFFF&}VOITURE.
+Dialogue: 2,0:00:51.45,0:00:52.73,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}PAS {\c&H00FFFFFF&}QU'UNE {\c&H0045C8FF&}VOITURE.
+Dialogue: 2,0:00:52.73,0:00:53.13,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}C'ÉTAIT {\c&H00FFFFFF&}LA {\c&H00FFFFFF&}PREUVE
+Dialogue: 2,0:00:53.13,0:00:53.23,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}C'ÉTAIT {\c&H0045C8FF&}LA {\c&H00FFFFFF&}PREUVE
+Dialogue: 2,0:00:53.23,0:00:53.43,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}C'ÉTAIT {\c&H00FFFFFF&}LA {\c&H0045C8FF&}PREUVE
+Dialogue: 2,0:00:53.43,0:00:53.60,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}QUE {\c&H00FFFFFF&}L'IMPOSSIBLE
+Dialogue: 2,0:00:53.60,0:00:54.09,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}QUE {\c&H0045C8FF&}L'IMPOSSIBLE
+Dialogue: 2,0:00:54.09,0:00:54.39,Sub,,0,0,0,,{\pos(540,1390)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H0045C8FF&}POUVAIT {\c&H00FFFFFF&}ROULER.
+Dialogue: 2,0:00:54.39,0:00:55.01,Sub,,0,0,0,,{\pos(540,1390)}{\c&H00FFFFFF&}POUVAIT {\c&H0045C8FF&}ROULER.
+Dialogue: 1,0:00:00.05,0:00:05.89,Label,,0,0,0,,{\fad(220,250)\move(540,300,540,290)\blur0.6}DOCUMENTAIRE
+Dialogue: 1,0:00:00.13,0:00:05.89,Big,,0,0,0,,{\fad(220,250)\fs100\move(540,400,540,388)\blur0.4}BUGATTI VEYRON
+Dialogue: 1,0:00:00.13,0:00:05.89,Bar,,0,0,0,,{\fad(220,250)\an5\pos(540,470)\p1\c&H0045C8FF&\t(0,400,\fscx100)\fscx0}m -70 0 l 70 0 l 70 4 l -70 4{\p0}
+Dialogue: 1,0:00:06.39,0:00:13.46,Label,,0,0,0,,{\fad(220,250)\move(540,300,540,290)\blur0.6}VOLKSWAGEN RACHÈTE BUGATTI
+Dialogue: 1,0:00:06.47,0:00:13.46,Big,,0,0,0,,{\fad(220,250)\fs128\move(540,400,540,388)\blur0.4}1998
+Dialogue: 1,0:00:06.47,0:00:13.46,Bar,,0,0,0,,{\fad(220,250)\an5\pos(540,470)\p1\c&H0045C8FF&\t(0,400,\fscx100)\fscx0}m -70 0 l 70 0 l 70 4 l -70 4{\p0}
+Dialogue: 1,0:00:13.92,0:00:17.65,Label,,0,0,0,,{\fad(220,250)\move(540,300,540,290)\blur0.6}MOLSHEIM · ALSACE
+Dialogue: 1,0:00:14.00,0:00:17.65,Big,,0,0,0,,{\fad(220,250)\fs128\move(540,400,540,388)\blur0.4}2005
+Dialogue: 1,0:00:14.00,0:00:17.65,Bar,,0,0,0,,{\fad(220,250)\an5\pos(540,470)\p1\c&H0045C8FF&\t(0,400,\fscx100)\fscx0}m -70 0 l 70 0 l 70 4 l -70 4{\p0}
+Dialogue: 1,0:00:17.75,0:00:22.28,Label,,0,0,0,,{\fad(220,250)\move(540,300,540,290)\blur0.6}W16 · 16 CYLINDRES · 4 TURBOS
+Dialogue: 1,0:00:17.83,0:00:22.28,Big,,0,0,0,,{\fad(220,250)\fs128\move(540,400,540,388)\blur0.4}8,0 L
+Dialogue: 1,0:00:17.83,0:00:22.28,Bar,,0,0,0,,{\fad(220,250)\an5\pos(540,470)\p1\c&H0045C8FF&\t(0,400,\fscx100)\fscx0}m -70 0 l 70 0 l 70 4 l -70 4{\p0}
+Dialogue: 1,0:00:22.43,0:00:24.68,Label,,0,0,0,,{\fad(220,250)\move(540,300,540,290)\blur0.6}REFROIDISSEMENT
+Dialogue: 1,0:00:22.51,0:00:24.68,Big,,0,0,0,,{\fad(220,250)\fs96\move(540,400,540,388)\blur0.4}10 RADIATEURS
+Dialogue: 1,0:00:22.51,0:00:24.68,Bar,,0,0,0,,{\fad(220,250)\an5\pos(540,470)\p1\c&H0045C8FF&\t(0,400,\fscx100)\fscx0}m -70 0 l 70 0 l 70 4 l -70 4{\p0}
+Dialogue: 1,0:00:24.83,0:00:26.75,Label,,0,0,0,,{\fad(220,250)\move(540,300,540,290)\blur0.6}0 – 100 KM/H
+Dialogue: 1,0:00:24.91,0:00:26.75,Big,,0,0,0,,{\fad(220,250)\fs128\move(540,400,540,388)\blur0.4}2,5 S
+Dialogue: 1,0:00:24.91,0:00:26.75,Bar,,0,0,0,,{\fad(220,250)\an5\pos(540,470)\p1\c&H0045C8FF&\t(0,400,\fscx100)\fscx0}m -70 0 l 70 0 l 70 4 l -70 4{\p0}
+Dialogue: 1,0:00:28.78,0:00:30.56,Label,,0,0,0,,{\fad(220,250)\move(540,300,540,290)\blur0.6}VITESSE DE POINTE · 2005
+Dialogue: 1,0:00:28.86,0:00:30.56,Big,,0,0,0,,{\fad(220,250)\fs128\move(540,400,540,388)\blur0.4}407 KM/H
+Dialogue: 1,0:00:28.86,0:00:30.56,Bar,,0,0,0,,{\fad(220,250)\an5\pos(540,470)\p1\c&H0045C8FF&\t(0,400,\fscx100)\fscx0}m -70 0 l 70 0 l 70 4 l -70 4{\p0}
+Dialogue: 1,0:00:31.16,0:00:38.18,Label,,0,0,0,,{\fad(220,250)\move(540,300,540,290)\blur0.6}SUPER SPORT · 2010 · 1 200 CH
+Dialogue: 1,0:00:31.24,0:00:38.18,Big,,0,0,0,,{\fad(220,250)\fs104\move(540,400,540,388)\blur0.4}431,072 KM/H
+Dialogue: 1,0:00:31.24,0:00:38.18,Bar,,0,0,0,,{\fad(220,250)\an5\pos(540,470)\p1\c&H0045C8FF&\t(0,400,\fscx100)\fscx0}m -70 0 l 70 0 l 70 4 l -70 4{\p0}
+Dialogue: 1,0:00:40.18,0:00:43.63,Label,,0,0,0,,{\fad(220,250)\move(540,300,540,290)\blur0.6}PIERRE VEYRON
+Dialogue: 1,0:00:40.26,0:00:43.63,Big,,0,0,0,,{\fad(220,250)\fs110\move(540,400,540,388)\blur0.4}LE MANS 1939
+Dialogue: 1,0:00:40.26,0:00:43.63,Bar,,0,0,0,,{\fad(220,250)\an5\pos(540,470)\p1\c&H0045C8FF&\t(0,400,\fscx100)\fscx0}m -70 0 l 70 0 l 70 4 l -70 4{\p0}
+Dialogue: 1,0:00:44.26,0:00:49.86,Label,,0,0,0,,{\fad(220,250)\move(540,300,540,290)\blur0.6}2005 – 2015
+Dialogue: 1,0:00:44.34,0:00:49.86,Big,,0,0,0,,{\fad(220,250)\fs92\move(540,400,540,388)\blur0.4}450 EXEMPLAIRES
+Dialogue: 1,0:00:44.34,0:00:49.86,Bar,,0,0,0,,{\fad(220,250)\an5\pos(540,470)\p1\c&H0045C8FF&\t(0,400,\fscx100)\fscx0}m -70 0 l 70 0 l 70 4 l -70 4{\p0}
+Dialogue: 0,0:00:00.00,0:00:55.66,Bar,,0,0,0,,{\an7\pos(0,0)\p1\c&H000000&\1a&H50&\blur90}m -200 -200 l 1280 -200 l 1280 560 l -200 560{\p0}
+Dialogue: 0,0:00:00.00,0:00:55.66,Bar,,0,0,0,,{\an7\pos(0,0)\p1\c&H000000&\1a&HA0&\blur90}m -200 1250 l 1280 1250 l 1280 1530 l -200 1530{\p0}
+Dialogue: 1,0:00:55.56,0:00:57.76,Big,,0,0,0,,{\fad(500,400)\fs118\fsp14\pos(540,880)}BUGATTI
+Dialogue: 1,0:00:55.81,0:00:57.76,Big,,0,0,0,,{\fad(500,400)\fs118\fsp14\pos(540,1010)\c&H0045C8FF&}VEYRON
+Dialogue: 1,0:00:56.06,0:00:57.76,Label,,0,0,0,,{\fad(500,400)\pos(540,1110)}16.4 · 2005 – 2015
+Dialogue: 1,0:00:56.26,0:00:57.76,Small,,0,0,0,,{\fad(500,400)\pos(540,1640)}Images : Wikimedia Commons (CC BY / CC BY-SA)\NCrédits complets en description
