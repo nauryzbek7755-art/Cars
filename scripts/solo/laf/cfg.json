@@ -1,0 +1,209 @@
+{
+ "vo": "vo",
+ "gap": 0.7,
+ "tail": 1.8,
+ "style": "calm",
+ "music_style": "cinematic",
+ "bpm": 80,
+ "root": 38,
+ "drop": 5.0,
+ "seed": 63,
+ "xfade": 0.35,
+ "videos": {
+  "mont": "vids/raw/monterey.webm"
+ },
+ "vspeed": {
+  "mont": 0.5
+ },
+ "vfast": true,
+ "vh": 1080,
+ "vaudio": [
+  "mont"
+ ],
+ "engvol": 0.28,
+ "musvol": 0.5,
+ "vgrade": "eq=contrast=1.1:saturation=0.85:brightness=-0.05:gamma=0.92,colorbalance=rs=-0.04:bs=0.05:rm=-0.01:bm=0.02:rh=0.02:bh=-0.02",
+ "voicefx": "highpass=f=60,equalizer=f=110:t=q:w=1.2:g=4,equalizer=f=250:t=q:w=1:g=1.5,equalizer=f=3000:t=q:w=1.4:g=2,equalizer=f=8000:t=q:w=1:g=-2,acompressor=threshold=-24dB:ratio=5:attack=4:release=80:makeup=5,alimiter=limit=0.9",
+ "cam": {
+  "mont": [
+   0.5,
+   0.5
+  ]
+ },
+ "shots": {
+  "0": [
+   [
+    "V:mont:574.0",
+    0,
+    0.45
+   ],
+   [
+    "V:mont:543.0",
+    7,
+    0.5
+   ]
+  ],
+  "1": [
+   [
+    "V:mont:544.5",
+    0,
+    0.5
+   ]
+  ],
+  "2": [
+   [
+    "V:mont:546.0",
+    0,
+    0.5
+   ]
+  ],
+  "3": [
+   [
+    "V:mont:575.5",
+    0,
+    0.5
+   ],
+   [
+    "V:mont:547.0",
+    5,
+    0.5
+   ]
+  ],
+  "4": [
+   [
+    "V:mont:577.0",
+    0,
+    0.5
+   ]
+  ],
+  "5": [
+   [
+    "V:mont:543.0",
+    0,
+    0.5,
+    null,
+    null,
+    [
+     1.3,
+     1.4
+    ]
+   ],
+   [
+    "V:mont:578.5",
+    6,
+    0.5
+   ]
+  ],
+  "6": [
+   [
+    "V:mont:580.0",
+    0,
+    0.55
+   ]
+  ],
+  "7": [
+   [
+    "V:mont:544.5",
+    0,
+    0.45,
+    null,
+    null,
+    [
+     1.35,
+     1.45
+    ]
+   ],
+   [
+    "V:mont:575.5",
+    7,
+    0.5,
+    null,
+    null,
+    [
+     1.4,
+     1.46
+    ]
+   ]
+  ],
+  "8": [
+   [
+    "V:mont:546.0",
+    0,
+    0.6,
+    null,
+    null,
+    [
+     1.3,
+     1.36
+    ]
+   ]
+  ],
+  "9": [
+   [
+    "V:mont:577.0",
+    0,
+    0.4,
+    null,
+    null,
+    [
+     1.3,
+     1.36
+    ]
+   ],
+   [
+    "V:mont:547.0",
+    6,
+    0.55
+   ]
+  ],
+  "10": [
+   [
+    "V:mont:574.0",
+    0,
+    0.5,
+    null,
+    null,
+    [
+     1.35,
+     1.42
+    ]
+   ],
+   [
+    "V:mont:544.5",
+    7,
+    0.55
+   ]
+  ],
+  "11": [
+   [
+    "V:mont:578.5",
+    0,
+    0.5,
+    null,
+    null,
+    [
+     1.3,
+     1.36
+    ]
+   ]
+  ],
+  "12": [
+   [
+    "V:mont:546.0",
+    0,
+    0.5
+   ],
+   [
+    "V:mont:580.0",
+    4,
+    0.5
+   ]
+  ]
+ },
+ "breaks": [
+  [
+   2,
+   4
+  ]
+ ]
+}

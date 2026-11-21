@@ -34,6 +34,7 @@ if CMD=='music':
     def place(buf,x,t0,g=1.0):
         i=int(t0*SR)
         if i<0: x=x[-i:]; i=0
+        if i>=len(buf): return
         j=min(len(buf),i+len(x)); buf[i:j]+=x[:j-i]*g
     nf=lambda m:440*2**((m-69)/12)
     def reverb(x,dur=2.0,wet=0.3):
@@ -114,6 +115,44 @@ if CMD=='music':
         if c.get('wh'): place(fx,whoosh(0.35,0.32),c['s']-0.22)
     end=L[-1]['end']
     mus=reverb(drums,0.7,0.1)+bass+reverb(bell,1.2,0.3)
+    if CFG.get('music_style')=='cinematic':
+        BPMc=CFG.get('bpm',80); Bc=60/BPMc; BAR=4*Bc
+        r0=CFG.get('root',38)
+        prog=[[r0,r0+3,r0+7],[r0-4,r0,r0+3],[r0+3,r0+7,r0+10],[r0-2,r0+2,r0+5]]   # i - VI - III - VII
+        pad=np.zeros(N); pno=np.zeros(N); sub=np.zeros(N); perc=np.zeros(N)
+        def saw2(f,dur):
+            n=int(dur*SR); tn=np.arange(n)/SR; o=np.zeros(n)
+            for dc in (-6,6):
+                ff=f*2**(dc/1200); ph=rng.uniform(0,6.28)
+                for h in range(1,12):
+                    if ff*h>6000: break
+                    o+=np.sin(2*np.pi*ff*h*tn+ph*h)/h
+            return o/2
+        def piano(m,dur=1.6):
+            n=int(dur*SR); tn=np.arange(n)/SR; f=nf(m)
+            o=sum(np.sin(2*np.pi*f*h*tn)*(0.6**(h-1))*np.exp(-tn*(2.2+h*0.9)) for h in range(1,7))
+            return o*np.minimum(1,tn*300)*0.22
+        tb=0.0; bar=0
+        while tb<T+BAR:
+            ch=prog[bar%4]; d=BAR+0.6
+            for m in ch:
+                x=saw2(nf(m+12),d); n=len(x); tn=np.arange(n)/SR
+                place(pad,x*np.minimum(1,tn/1.2)*np.minimum(1,(d-tn)/0.8)*0.06,tb)
+            n=int(d*SR); tn=np.arange(n)/SR
+            place(sub,np.sin(2*np.pi*nf(ch[0]-12)*tn)*np.minimum(1,tn/0.3)*np.minimum(1,(d-tn)/0.5)*0.30,tb)
+            arp=[ch[0]+24,ch[1]+24,ch[2]+24,ch[1]+24, ch[0]+36,ch[2]+24,ch[1]+24,ch[2]+24]
+            for i,m in enumerate(arp):
+                if tb+i*Bc/2>0.6 or bar>0: place(pno,piano(m),tb+i*Bc/2,0.9 if i%4==0 else 0.6)
+            if tb>=CFG.get('drop',3.0):
+                for b in (0,2):
+                    place(perc,kick()*0.55,tb+b*Bc)
+                place(perc,clap()*0.25,tb+3*Bc)
+                for h in range(8): place(perc,hat()*0.35,tb+h*Bc/2+Bc/4)
+            tb+=BAR; bar+=1
+        pad=lp(pad,1400)
+        mus=reverb(pad,3.0,0.45)+sub+reverb(pno,2.4,0.4)+reverb(perc,1.0,0.15)
+        fx=np.zeros(N); place(fx,boom(0.7,2.5),0.0)
+        for b in breaks: place(fx,boom(0.5,2.0),b)
     mus*=np.interp(t,[0,T-1.0,T+0.2],[1,1,0]); fxm=reverb(fx,1.8,0.25)*np.interp(t,[0,T,T+0.4],[1,1,0])
     def wr(x,f):
         x=x[:int((T+0.2)*SR)]; x=x/np.max(np.abs(x))*0.89
@@ -128,7 +167,7 @@ if CMD=='music':
         d=int(ln['start']*1000); fl.append(f"[{k}:a]aresample=48000,aformat=channel_layouts=mono,adelay={d}|{d}[a{k}]")
     fl.append(''.join(f'[a{k}]' for k in range(len(L)))+f"amix=inputs={len(L)}:normalize=0,apad,atrim=0:{T}[v]")
     subprocess.run(['ffmpeg','-y','-v','error',*ins,'-filter_complex',';'.join(fl),'-map','[v]','-ar','48000',f'{D}/voice_raw.wav'],check=True)
-    subprocess.run(['ffmpeg','-y','-v','error','-i',f'{D}/voice_raw.wav','-af','highpass=f=80,equalizer=f=170:t=q:w=1:g=2.5,equalizer=f=3200:t=q:w=1.2:g=3,acompressor=threshold=-20dB:ratio=3.5:attack=6:release=100:makeup=3.5,alimiter=limit=0.9','-ac','2',f'{D}/voice.wav'],check=True)
+    subprocess.run(['ffmpeg','-y','-v','error','-i',f'{D}/voice_raw.wav','-af',CFG.get('voicefx','highpass=f=80,equalizer=f=170:t=q:w=1:g=2.5,equalizer=f=3200:t=q:w=1.2:g=3,acompressor=threshold=-20dB:ratio=3.5:attack=6:release=100:makeup=3.5,alimiter=limit=0.9'),'-ac','2',f'{D}/voice.wav'],check=True)
     eng=np.zeros((int((T+1)*SR),2),np.float32); has_eng=False
     for c in cuts:
         if not c['img'].startswith('V:'): continue
@@ -178,7 +217,11 @@ Style: Sub,Inter Display Black,86,&H00FFFFFF,&H00FFFFFF,&H00000000,&HA0000000,-1
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 """
-    ev=[]; Y=CFG.get('suby',1380)
+    CALMS=CFG.get('style')=='calm'
+    if CALMS:
+        head=head.replace('Style: Sub,Inter Display Black,86,&H00FFFFFF,&H00FFFFFF,&H00000000,&HA0000000,-1,0,0,0,100,100,1,0,1,6,4,5,90,90,0,1',
+                          'Style: Sub,Inter Display SemiBold,54,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,-1,0,0,0,100,100,0.5,0,1,2.2,1.5,5,120,120,0,1')
+    ev=[]; Y=CFG.get('suby',960 if CALMS else 1380)
     for ln in L:
         text=lines[ln['i']]; pos=0; toks=[]
         for w in ln['words']:
@@ -186,16 +229,23 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
             k=j+len(tok); m=re.match(r'\s*([.,:?!;]+)',text[k:]); tail=''
             if m: tail=m.group(1).strip(); k+=m.end()
             pos=k
-            disp=' '.join(MAP.get(p,p) for p in tok.split()).upper()
+            disp=' '.join(MAP.get(p,p) for p in tok.split())
+            if not CALMS: disp=disp.upper()
             if tail in ('?','!',':'): disp+=' '+tail
             elif tail: disp+=tail
             toks.append(dict(s=w['s'],e=w['e'],d=disp,brk=bool(tail)))
         chunks=[];cur=[]
         for tk in toks:
-            if cur and sum(len(x['d'])+1 for x in cur)+len(tk['d'])>16: chunks.append(cur);cur=[]
+            if cur and sum(len(x['d'])+1 for x in cur)+len(tk['d'])>(14 if CALMS else 16): chunks.append(cur);cur=[]
             cur.append(tk)
-            if tk['brk'] or len(cur)>=3: chunks.append(cur);cur=[]
+            if tk['brk'] or len(cur)>=(2 if CALMS else 3): chunks.append(cur);cur=[]
         if cur: chunks.append(cur)
+        if CALMS:
+            for ci,ch in enumerate(chunks):
+                cend=chunks[ci+1][0]['s']-0.02 if ci+1<len(chunks) else ch[-1]['e']+0.3
+                txt=' '.join(x['d'] for x in ch)
+                ev.append(f"Dialogue: 2,{tss(ch[0]['s']-0.02)},{tss(cend)},Sub,,0,0,0,,{{\\pos(540,{Y})\\fad(60,0)}}"+txt)
+            continue
         for ci,ch in enumerate(chunks):
             cend=chunks[ci+1][0]['s']-0.03 if ci+1<len(chunks) else ch[-1]['e']+0.25
             for wi,w in enumerate(ch):
@@ -266,6 +316,8 @@ rng=np.random.default_rng(9)
 for k,c in enumerate(EDL):
     mv=CFG.get('moves',{}).get(c['img'])
     if mv: c['z0'],c['z1'],c['dx'],c['rot']=mv
+    elif CFG.get('style')=='calm':
+        c['z0'],c['z1'],c['dx'],c['rot']=[(1.0,1.06,0.02,0.0),(1.06,1.0,-0.02,0.0)][k%2]
     elif c['img'].startswith('V:'):
         c['z0'],c['z1'],c['dx'],c['rot']=[(1.0,1.08,0.03,0.8),(1.08,1.0,-0.03,-0.8)][k%2]
     else:
@@ -349,7 +401,7 @@ def overlays(t):
         k=0.9+0.1*abs(math.sin(dt*6))
         stext(ov,CFG['cta'][2],F(60,'ExtraBold'),ACC,540,760,k*min(1,pop(dt-0.2,0.12,1.2)),stroke=5)
     # progress bar bottom (retention cue)
-    d.rectangle((0,H-10,int(W*t/T),H),fill=ACC+(200,))
+    if CFG.get('style')!='calm': d.rectangle((0,H-10,int(W*t/T),H),fill=ACC+(200,))
     return ov
 yy,xx=np.mgrid[0:H,0:W].astype(np.float32)
 r=np.sqrt(((xx-W/2)/(W*0.6))**2+((yy-H/2)/(H*0.58))**2)
@@ -359,6 +411,7 @@ BOTG=np.clip((yy-1150)/500,0,1)[...,None]*np.clip((1700-yy)/250,0,1)[...,None]*0
 GR=[(np.asarray(Image.fromarray((rng.normal(128,40,(H//2,W//2))).clip(0,255).astype(np.uint8)).resize((W,H)),np.float32)/255-0.5)[...,None]*0.055 for _ in range(5)]
 def shake(t):
     sx=sy=0
+    if CFG.get('style')=='calm': return (0,0)
     for tt in HITS:
         d_=t-tt
         if 0<=d_<0.32: a=(1-d_/0.32)**2*20; sx+=a*math.sin(t*97); sy+=a*math.cos(t*71)
@@ -388,6 +441,7 @@ def fitframe(c,t,p,punch):
 def shot(c,t):
     p=min(max((t-c['s'])/max(c['e']-c['s'],1e-3),0),1)
     punch=0.14*(1-(t-c['s'])/0.2) if 0<=t-c['s']<0.2 else 0
+    if CFG.get('style')=='calm': punch=0
     if c.get('fit'): return fitframe(c,t,p,punch)
     return view(c['img'],W,H,p,c['z0'],c['z1'],c['dx'],c['rot'],shake(t),punch,fi=int((t-c['s'])*FPS),cxo=c.get('cx'),cyo=c.get('cy'))
 def rgb_split(fr,amt):
@@ -399,11 +453,21 @@ def whip(fr,amt):
     acc=np.zeros_like(fr); n=6
     for i in range(n): acc+=np.roll(fr,int(amt*i/n),axis=1)
     return acc/n
+CALM_MODE=CFG.get('style')=='calm'
 def render(t):
     k=0
     for i,c in enumerate(EDL):
         if c['s']<=t: k=i
     c=EDL[k]; fr=shot(c,t); dt=t-c['s']
+    if CALM_MODE:
+        XF=CFG.get('xfade',0.3)
+        if k>0 and dt<XF:
+            a=dt/XF; a=a*a*(3-2*a); fr=shot(EDL[k-1],t)*(1-a)+fr*a
+        fr=fr*VIG
+        o=np.asarray(overlays(t),np.float32)/255; fr=fr*(1-o[...,3:])+o[...,:3]*o[...,3:]
+        if t<0.25: fr=fr*(t/0.25)
+        if t>T-0.6: fr=fr*max(0,(T-t)/0.6)
+        return fr
     if k>0 and dt<0.12: fr=whip(rgb_split(fr,(1-dt/0.12)*26),(1-dt/0.12)*180)
     if k+1<len(EDL) and EDL[k+1]['s']-t<0.08: fr=whip(fr,(1-(EDL[k+1]['s']-t)/0.08)*150)
     fr=fr*VIG*(1-TOPG)*(1-BOTG)
