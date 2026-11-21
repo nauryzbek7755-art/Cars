@@ -1,0 +1,236 @@
+{
+ "vo": "vo",
+ "gap": 0.45,
+ "tail": 1.6,
+ "style": "horizon",
+ "music_style": "cinematic",
+ "bpm": 80,
+ "root": 38,
+ "drop": 5.0,
+ "seed": 63,
+ "xfade": 0,
+ "videos": {
+  "dbs": "vids/raw/dbs.webm"
+ },
+ "vspeed": {
+  "dbs": 0.6
+ },
+ "vfast": true,
+ "vh": 1200,
+ "vaudio": [
+  "dbs"
+ ],
+ "engvol": 0.3,
+ "musvol": 0.55,
+ "vgrade": "eq=contrast=1.08:saturation=0.8:brightness=-0.03:gamma=0.95,colorbalance=rs=-0.05:gs=0.0:bs=0.04:rm=-0.03:bm=0.03:rh=0.0:bh=0.02",
+ "voicefx": "highpass=f=55,equalizer=f=110:t=q:w=1.2:g=4,equalizer=f=220:t=q:w=1:g=1.5,equalizer=f=2800:t=q:w=1.4:g=2.5,equalizer=f=9000:t=q:w=1:g=-3,acompressor=threshold=-24dB:ratio=5:attack=4:release=80:makeup=5,asoftclip=type=tanh:threshold=0.7,alimiter=limit=0.9",
+ "shots": {
+  "0": [
+   [
+    "V:dbs:600",
+    0,
+    0.5,
+    null,
+    null,
+    [
+     1.0,
+     1.2
+    ]
+   ],
+   [
+    "V:dbs:96",
+    12,
+    0.5,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ]
+  ],
+  "1": [
+   [
+    "V:dbs:0.5",
+    0,
+    0.5,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ]
+  ],
+  "2": [
+   [
+    "V:dbs:22.5",
+    0,
+    0.5,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ],
+   [
+    "V:dbs:20.5",
+    5,
+    0.5,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ]
+  ],
+  "3": [
+   [
+    "V:dbs:13.5",
+    0,
+    0.5,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ]
+  ],
+  "4": [
+   [
+    "V:dbs:168",
+    0,
+    0.5,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ],
+   [
+    "V:dbs:18.5",
+    4,
+    0.5,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ]
+  ],
+  "5": [
+   [
+    "V:dbs:330",
+    0,
+    0.5,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ]
+  ],
+  "6": [
+   [
+    "V:dbs:456",
+    0,
+    0.5,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ]
+  ],
+  "7": [
+   [
+    "V:dbs:31.5",
+    0,
+    0.5,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ],
+   [
+    "V:dbs:9.0",
+    6,
+    0.5,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ]
+  ],
+  "8": [
+   [
+    "V:dbs:4.5",
+    0,
+    0.5,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ],
+   [
+    "V:dbs:25.0",
+    5,
+    0.5,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ]
+  ],
+  "9": [
+   [
+    "V:dbs:566",
+    0,
+    0.5,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ],
+   [
+    "V:dbs:15",
+    4,
+    0.5,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ]
+  ]
+ },
+ "breaks": [],
+ "map": {
+  "newton-mètres": "Nm",
+  "kilomètres-heure": "km/h"
+ },
+ "cam": {
+  "dbs": [
+   0.5,
+   0.5
+  ]
+ }
+}

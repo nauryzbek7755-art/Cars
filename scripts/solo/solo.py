@@ -340,7 +340,7 @@ if CMD=='vprep':
         _,name,st=c['img'].split(':'); dd=f'{D}/vf/{name}_{st}'
         if os.path.isdir(dd) and len(os.listdir(dd))>0: continue
         os.makedirs(dd,exist_ok=True); sp=SPEED.get(name,1.0); dur=(c['e']-c['s']+0.6)*sp
-        subprocess.run(['ffmpeg','-v','error','-ss',st,'-i',CFG['videos'][name],'-t',str(dur),'-vf',(CFG.get('vcrop',{}).get(name,'')+',' if CFG.get('vcrop',{}).get(name) else '')+f'setpts={1/sp}*PTS,'+('framerate=fps=30:interp_start=0:interp_end=255:scene=100,' if CFG.get('style')=='horizon' else 'fps=30,')+'scale=-2:'+str(CFG.get('vh',1440))+(','+CFG.get('vgrade',VGRADE) if CFG.get('vfast') else ''),'-q:v','2',f'{dd}/%04d.jpg'],check=True)
+        subprocess.run(['ffmpeg','-v','error','-ss',st,'-t',str(dur+0.2),'-i',CFG['videos'][name],'-t',str(dur/sp),'-vf',(CFG.get('vcrop',{}).get(name,'')+',' if CFG.get('vcrop',{}).get(name) else '')+f'setpts={1/sp}*PTS,'+('framerate=fps=30:interp_start=0:interp_end=255:scene=100,' if CFG.get('style')=='horizon' else 'fps=30,')+'scale=-2:'+str(CFG.get('vh',1440))+(','+CFG.get('vgrade',VGRADE) if CFG.get('vfast') else ''),'-q:v','2',f'{dd}/%04d.jpg'],check=True)
         print(dd,len(os.listdir(dd)))
     sys.exit()
 STATS=[dict(t=ws(s[0],s[1])-0.05,big=s[2],small=s[3],until=(ws(s[4],s[5]) if len(s)>5 else None)) for s in CFG.get('stats',[])]
