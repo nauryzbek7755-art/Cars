@@ -159,7 +159,7 @@ def outro(t,lt):
     return im.convert('RGB')
 def sub_button(img,lt):
     im=img.convert('RGBA'); dr=Dr(im); s=ease(lt/0.15)*(1+0.05*math.sin(lt*14))
-    if s<=0: return img
+    if s<0.05: return img
     w,h=560*s,130*s; y=1000
     dr.rrect((540-w/2,y-h/2,540+w/2,y+h/2),int(65*s),fill=(254,44,85)); dr.text((540,y),'+ Abonne-toi',F(int(66*s)),fill=(255,255,255))
     hx=600+40*math.sin(lt*6); dr.ellipse((hx,y+30,hx+70,y+100),fill=(255,220,180),outline=OUT,width=3)   # tapping finger
