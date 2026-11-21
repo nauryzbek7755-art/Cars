@@ -9,6 +9,12 @@ FONT='/usr/share/fonts/opentype/inter/'
 def F(sz,w='Black'): return ImageFont.truetype(FONT+f'Inter-{w}.otf',sz)
 def ease(x): x=min(max(x,0),1); return x*x*(3-2*x)
 IM={k:Image.open(f'{D}/img/{k}.png').convert('RGB').resize((int(W*1.25),int(H*1.25)),Image.LANCZOS) for k in range(1,7)}
+import os
+CLIP={0:(1,1.6),1:(2,3.3),2:(3,0.8)}   # scene -> (clip folder, start offset s)
+CF={c:sorted(os.listdir(f'{D}/cf{c}')) for c,_ in CLIP.values()}
+def clipframe(i,lt):
+    c,off=CLIP[i]; fs=CF[c]; n=min(len(fs)-1,int((off+lt)*30))
+    return Image.open(f'{D}/cf{c}/{fs[n]}').convert('RGB')
 rng=np.random.default_rng(3)
 EMB=[(rng.uniform(0,W),rng.uniform(0,H),rng.uniform(2,6),rng.uniform(80,220)) for _ in range(70)]
 # scene -> (image, zoom0, zoom1, cx0,cy0, cx1,cy1)  (centers in 0..1 of image)
@@ -31,7 +37,7 @@ def frame(t):
     k,z0,z1,cx0,cy0,cx1,cy1=SC[i]
     sh=(0,0)
     if i>=5: sh=(math.sin(t*37)*6,math.cos(t*29)*6)
-    img=view(k,p,z0,z1,(cx0,cy0),(cx1,cy1),sh)
+    img=clipframe(i,lt) if i in CLIP else view(k,p,z0,z1,(cx0,cy0),(cx1,cy1),sh)
     a=np.asarray(img,np.float32)
     if i==3:   # fire flicker
         fl=0.92+0.08*math.sin(t*23)+0.05*math.sin(t*41); a=a*np.array([fl*1.04,fl,fl*0.94])
@@ -39,15 +45,16 @@ def frame(t):
         yy,xx=np.mgrid[0:H,0:W]; r=np.sqrt(((xx-W/2)/(W*0.62))**2+((yy-H/2)/(H*0.6))**2)
         a=a*np.clip(1-0.6*np.clip(r-0.5,0,1),0,1)[...,None]
     img=Image.fromarray(a.clip(0,255).astype(np.uint8)).convert('RGBA'); d=ImageDraw.Draw(img)
-    if i==1:
+    if i==1 and False:
         for j in range(5):
             ph=(t*1.6+j*0.37)%1; sparkle(d,520+math.cos(j*2.1)*90,880+math.sin(j*1.7)*70,10+40*math.sin(ph*math.pi),int(255*math.sin(ph*math.pi)))
+    if i==1:
         s=ease(lt/0.15)*(1+0.05*math.sin(lt*14))
         if s>0.05:
             w,h=600*s,140*s; y=1540
             d.rounded_rectangle((540-w/2,y-h/2,540+w/2,y+h/2),radius=int(70*s),fill=(254,44,85))
             d.text((540,y),'+ Abonne-toi',font=F(max(1,int(70*s))),fill=(255,255,255),anchor='mm')
-    if i==0 and lt>0.6:
+    if i==0 and False:
         ph=(t*1.3)%1; sparkle(d,485,940,8+30*math.sin(ph*math.pi),int(230*math.sin(ph*math.pi)))
     if i in (3,4):
         for (ex,ey,er,es) in EMB:
