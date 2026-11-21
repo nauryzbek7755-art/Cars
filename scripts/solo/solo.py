@@ -479,7 +479,17 @@ def render(t):
         pic=view(c['img'],W,PH,p,c['z0'],c['z1'],c['dx'],0,(0,0),0,fi=int((t-c['s'])*FPS),cxo=c.get('cx'),cyo=c.get('cy'))
         pic=pic*HVIG*SCAN+HGR[int(t*FPS)%5]
         out=np.zeros((H,W,3),np.float32); out[PY:PY+PH]=np.clip(pic,0,1)
-        if t<0.2: out*=t/0.2
+        if CFG.get('headline'):
+            if 'HL' not in TC:
+                hl=Image.new('RGBA',(W,PY),(0,0,0,0)); dd=ImageDraw.Draw(hl)
+                fnt=ImageFont.truetype(FONT+'Inter-ExtraBold.otf',CFG.get('hl_size',62))
+                lines_=CFG['headline'].split('\n'); lh=int(fnt.size*1.22); y0=(PY-lh*len(lines_))//2+10
+                for i_,ln_ in enumerate(lines_):
+                    col=tuple(CFG.get('hl_accent',[255,214,0])) if i_==len(lines_)-1 else (255,255,255)
+                    bw=dd.textlength(ln_,font=fnt); dd.text(((W-bw)/2,y0+i_*lh),ln_,font=fnt,fill=col+(255,))
+                TC['HL']=np.asarray(hl,np.float32)/255
+            o=TC['HL']; out[:PY]=out[:PY]*(1-o[...,3:])+o[...,:3]*o[...,3:]
+        if t<0.05 and not CFG.get('headline'): out*=t/0.05
         if t>T-0.5: out*=max(0,(T-t)/0.5)
         return out
     if CALM_MODE:

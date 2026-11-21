@@ -1,0 +1,191 @@
+{
+ "vo": "vo2",
+ "gap": 0.35,
+ "tail": 1.3,
+ "style": "horizon",
+ "music_style": "cinematic",
+ "bpm": 80,
+ "root": 38,
+ "drop": 5.0,
+ "seed": 63,
+ "xfade": 0,
+ "videos": {
+  "targa": "vids/raw/targa.webm"
+ },
+ "vspeed": {
+  "targa": 0.75
+ },
+ "vfast": true,
+ "vh": 1200,
+ "vaudio": [],
+ "engvol": 0.22,
+ "musvol": 0.55,
+ "vgrade": "eq=contrast=1.08:saturation=0.95:brightness=0.0:gamma=1.0,colorbalance=rs=-0.03:bs=0.03:rh=0.02:bh=-0.02",
+ "voicefx": "highpass=f=55,equalizer=f=110:t=q:w=1.2:g=4,equalizer=f=220:t=q:w=1:g=1.5,equalizer=f=2800:t=q:w=1.4:g=2.5,equalizer=f=9000:t=q:w=1:g=-3,acompressor=threshold=-24dB:ratio=5:attack=4:release=80:makeup=5,asoftclip=type=tanh:threshold=0.7,alimiter=limit=0.9",
+ "cam": {
+  "targa": [
+   0.5,
+   0.5
+  ]
+ },
+ "shots": {
+  "0": [
+   [
+    "V:targa:50.0",
+    0,
+    0.62,
+    null,
+    null,
+    [
+     1.0,
+     1.12
+    ]
+   ],
+   [
+    "V:targa:40.0",
+    5,
+    0.62,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ]
+  ],
+  "1": [
+   [
+    "V:targa:7.5",
+    0,
+    0.6,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ]
+  ],
+  "2": [
+   [
+    "V:targa:47.5",
+    0,
+    0.5,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ]
+  ],
+  "3": [
+   [
+    "V:targa:55.0",
+    0,
+    0.6,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ]
+  ],
+  "4": [
+   [
+    "V:targa:27.5",
+    0,
+    0.55,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ],
+   [
+    "V:targa:42.5",
+    7,
+    0.5,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ]
+  ],
+  "5": [
+   [
+    "V:targa:52.5",
+    0,
+    0.45,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ]
+  ],
+  "6": [
+   [
+    "V:targa:25.0",
+    0,
+    0.5,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ]
+  ],
+  "7": [
+   [
+    "V:targa:15.0",
+    0,
+    0.5,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ],
+   [
+    "V:targa:62.5",
+    8,
+    0.68,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ]
+  ],
+  "8": [
+   [
+    "V:targa:65.0",
+    0,
+    0.6,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ]
+  ]
+ },
+ "breaks": [],
+ "gaps": {
+  "0": 0.5,
+  "7": 0.5
+ },
+ "headline": "Cette Porsche devait\ns'appeler 901…\nPeugeot a dit NON",
+ "hl_size": 78,
+ "map": {}
+}
