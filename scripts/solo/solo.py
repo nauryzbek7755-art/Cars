@@ -217,11 +217,14 @@ Style: Sub,Inter Display Black,86,&H00FFFFFF,&H00FFFFFF,&H00000000,&HA0000000,-1
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 """
-    CALMS=CFG.get('style')=='calm'
-    if CALMS:
+    CALMS=CFG.get('style') in ('calm','horizon')
+    if CFG.get('style')=='horizon':
+        head=head.replace('Style: Sub,Inter Display Black,86,&H00FFFFFF,&H00FFFFFF,&H00000000,&HA0000000,-1,0,0,0,100,100,1,0,1,6,4,5,90,90,0,1',
+                          'Style: Sub,Inter Bold,52,&H00FFFFFF,&H00FFFFFF,&H00202020,&H99000000,-1,0,0,0,100,100,0.3,0,1,1.2,2,5,120,120,0,1')
+    elif CALMS:
         head=head.replace('Style: Sub,Inter Display Black,86,&H00FFFFFF,&H00FFFFFF,&H00000000,&HA0000000,-1,0,0,0,100,100,1,0,1,6,4,5,90,90,0,1',
                           'Style: Sub,Inter Display SemiBold,54,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,-1,0,0,0,100,100,0.5,0,1,2.2,1.5,5,120,120,0,1')
-    ev=[]; Y=CFG.get('suby',960 if CALMS else 1380)
+    ev=[]; Y=CFG.get('suby',835 if CFG.get('style')=='horizon' else (960 if CALMS else 1380))
     for ln in L:
         text=lines[ln['i']]; pos=0; toks=[]
         for w in ln['words']:
@@ -244,6 +247,7 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
             for ci,ch in enumerate(chunks):
                 cend=chunks[ci+1][0]['s']-0.02 if ci+1<len(chunks) else ch[-1]['e']+0.3
                 txt=' '.join(x['d'] for x in ch)
+                if CFG.get('style')=='horizon': txt=re.sub(r'\s*[.,:;!?…]+','',txt).strip()
                 ev.append(f"Dialogue: 2,{tss(ch[0]['s']-0.02)},{tss(cend)},Sub,,0,0,0,,{{\\pos(540,{Y})\\fad(60,0)}}"+txt)
             continue
         for ci,ch in enumerate(chunks):
@@ -316,6 +320,8 @@ rng=np.random.default_rng(9)
 for k,c in enumerate(EDL):
     mv=CFG.get('moves',{}).get(c['img'])
     if mv: c['z0'],c['z1'],c['dx'],c['rot']=mv
+    elif CFG.get('style')=='horizon':
+        c['z0'],c['z1'],c['dx'],c['rot']=(1.0,1.09,0.0,0.0)
     elif CFG.get('style')=='calm':
         c['z0'],c['z1'],c['dx'],c['rot']=[(1.0,1.06,0.02,0.0),(1.06,1.0,-0.02,0.0)][k%2]
     elif c['img'].startswith('V:'):
@@ -334,7 +340,7 @@ if CMD=='vprep':
         _,name,st=c['img'].split(':'); dd=f'{D}/vf/{name}_{st}'
         if os.path.isdir(dd) and len(os.listdir(dd))>0: continue
         os.makedirs(dd,exist_ok=True); sp=SPEED.get(name,1.0); dur=(c['e']-c['s']+0.6)*sp
-        subprocess.run(['ffmpeg','-v','error','-ss',st,'-i',CFG['videos'][name],'-t',str(dur),'-vf',(CFG.get('vcrop',{}).get(name,'')+',' if CFG.get('vcrop',{}).get(name) else '')+f'setpts={1/sp}*PTS,fps=30,scale=-2:'+str(CFG.get('vh',1440))+(','+CFG.get('vgrade',VGRADE) if CFG.get('vfast') else ''),'-q:v','2',f'{dd}/%04d.jpg'],check=True)
+        subprocess.run(['ffmpeg','-v','error','-ss',st,'-i',CFG['videos'][name],'-t',str(dur),'-vf',(CFG.get('vcrop',{}).get(name,'')+',' if CFG.get('vcrop',{}).get(name) else '')+f'setpts={1/sp}*PTS,'+('framerate=fps=30:interp_start=0:interp_end=255:scene=100,' if CFG.get('style')=='horizon' else 'fps=30,')+'scale=-2:'+str(CFG.get('vh',1440))+(','+CFG.get('vgrade',VGRADE) if CFG.get('vfast') else ''),'-q:v','2',f'{dd}/%04d.jpg'],check=True)
         print(dd,len(os.listdir(dd)))
     sys.exit()
 STATS=[dict(t=ws(s[0],s[1])-0.05,big=s[2],small=s[3],until=(ws(s[4],s[5]) if len(s)>5 else None)) for s in CFG.get('stats',[])]
@@ -454,11 +460,28 @@ def whip(fr,amt):
     for i in range(n): acc+=np.roll(fr,int(amt*i/n),axis=1)
     return acc/n
 CALM_MODE=CFG.get('style')=='calm'
+if CFG.get('style')=='horizon':
+    _PH=CFG.get('pic_h',1192)
+    _yy,_xx=np.mgrid[0:_PH,0:W].astype(np.float32)
+    _r=np.sqrt(((_xx-W/2)/(W*0.62))**2+((_yy-_PH/2)/(_PH*0.62))**2)
+    HVIG=np.clip(1-0.55*np.clip(_r-0.5,0,1)**1.5,0,1)[...,None]
+    SCAN=(1-0.09*((np.arange(_PH)%6)<2).astype(np.float32))[:,None,None]
+    _rg=np.random.default_rng(4)
+    HGR=[(np.asarray(Image.fromarray(_rg.normal(128,40,(_PH//2,W//2)).clip(0,255).astype(np.uint8)).resize((W,_PH)),np.float32)/255-0.5)[...,None]*0.05 for _ in range(5)]
 def render(t):
     k=0
     for i,c in enumerate(EDL):
         if c['s']<=t: k=i
     c=EDL[k]; fr=shot(c,t); dt=t-c['s']
+    if CFG.get('style')=='horizon':
+        PY,PH=CFG.get('pic_y',420),CFG.get('pic_h',1192)
+        p=min(max((t-c['s'])/max(c['e']-c['s'],1e-3),0),1)
+        pic=view(c['img'],W,PH,p,c['z0'],c['z1'],c['dx'],0,(0,0),0,fi=int((t-c['s'])*FPS),cxo=c.get('cx'),cyo=c.get('cy'))
+        pic=pic*HVIG*SCAN+HGR[int(t*FPS)%5]
+        out=np.zeros((H,W,3),np.float32); out[PY:PY+PH]=np.clip(pic,0,1)
+        if t<0.2: out*=t/0.2
+        if t>T-0.5: out*=max(0,(T-t)/0.5)
+        return out
     if CALM_MODE:
         XF=CFG.get('xfade',0.3)
         if k>0 and dt<XF:

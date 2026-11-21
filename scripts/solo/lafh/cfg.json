@@ -1,0 +1,282 @@
+{
+ "vo": "vo",
+ "gap": 0.45,
+ "tail": 1.6,
+ "style": "horizon",
+ "music_style": "cinematic",
+ "bpm": 80,
+ "root": 38,
+ "drop": 5.0,
+ "seed": 63,
+ "xfade": 0,
+ "videos": {
+  "mont": "vids/raw/monterey.webm"
+ },
+ "vspeed": {
+  "mont": 0.5
+ },
+ "vfast": true,
+ "vh": 1200,
+ "vaudio": [
+  "mont"
+ ],
+ "engvol": 0.22,
+ "musvol": 0.55,
+ "vgrade": "eq=contrast=1.08:saturation=0.8:brightness=-0.03:gamma=0.95,colorbalance=rs=-0.05:gs=0.0:bs=0.04:rm=-0.03:bm=0.03:rh=0.0:bh=0.02",
+ "voicefx": "highpass=f=55,equalizer=f=110:t=q:w=1.2:g=4,equalizer=f=220:t=q:w=1:g=1.5,equalizer=f=2800:t=q:w=1.4:g=2.5,equalizer=f=9000:t=q:w=1:g=-3,acompressor=threshold=-24dB:ratio=5:attack=4:release=80:makeup=5,asoftclip=type=tanh:threshold=0.7,alimiter=limit=0.9",
+ "cam": {
+  "mont": [
+   0.5,
+   0.5
+  ]
+ },
+ "shots": {
+  "0": [
+   [
+    "V:mont:574.0",
+    0,
+    0.42,
+    null,
+    null,
+    [
+     1.0,
+     1.28
+    ]
+   ],
+   [
+    "V:mont:543.0",
+    8,
+    0.5,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ]
+  ],
+  "1": [
+   [
+    "V:mont:544.5",
+    0,
+    0.5,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ]
+  ],
+  "2": [
+   [
+    "V:mont:546.0",
+    0,
+    0.5,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ]
+  ],
+  "3": [
+   [
+    "V:mont:575.5",
+    0,
+    0.5,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ],
+   [
+    "V:mont:547.0",
+    4,
+    0.5,
+    null,
+    null,
+    [
+     1.25,
+     1.36
+    ]
+   ]
+  ],
+  "4": [
+   [
+    "V:mont:578.5",
+    0,
+    0.5,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ]
+  ],
+  "5": [
+   [
+    "V:mont:543.2",
+    0,
+    0.55,
+    null,
+    null,
+    [
+     1.25,
+     1.36
+    ]
+   ],
+   [
+    "V:mont:580.0",
+    5,
+    0.55,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ]
+  ],
+  "6": [
+   [
+    "V:mont:544.7",
+    0,
+    0.45,
+    null,
+    null,
+    [
+     1.25,
+     1.36
+    ]
+   ]
+  ],
+  "7": [
+   [
+    "V:mont:574.3",
+    0,
+    0.5,
+    null,
+    null,
+    [
+     1.25,
+     1.36
+    ]
+   ],
+   [
+    "V:mont:546.2",
+    7,
+    0.6,
+    null,
+    null,
+    [
+     1.25,
+     1.36
+    ]
+   ]
+  ],
+  "8": [
+   [
+    "V:mont:577.2",
+    0,
+    0.5,
+    null,
+    null,
+    [
+     1.25,
+     1.36
+    ]
+   ]
+  ],
+  "9": [
+   [
+    "V:mont:547.2",
+    0,
+    0.5,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ],
+   [
+    "V:mont:575.7",
+    4,
+    0.42,
+    null,
+    null,
+    [
+     1.25,
+     1.36
+    ]
+   ]
+  ],
+  "10": [
+   [
+    "V:mont:543.4",
+    0,
+    0.5,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ],
+   [
+    "V:mont:580.2",
+    8,
+    0.5,
+    null,
+    null,
+    [
+     1.25,
+     1.36
+    ]
+   ]
+  ],
+  "11": [
+   [
+    "V:mont:578.7",
+    0,
+    0.5,
+    null,
+    null,
+    [
+     1.25,
+     1.36
+    ]
+   ]
+  ],
+  "12": [
+   [
+    "V:mont:544.9",
+    0,
+    0.5,
+    null,
+    null,
+    [
+     1.0,
+     1.09
+    ]
+   ],
+   [
+    "V:mont:546.4",
+    3,
+    0.5,
+    null,
+    null,
+    [
+     1.12,
+     1.0
+    ]
+   ]
+  ]
+ },
+ "breaks": []
+}
