@@ -10,7 +10,7 @@ def F(sz,w='Black'): return ImageFont.truetype(FONT+f'Inter-{w}.otf',sz)
 def ease(x): x=min(max(x,0),1); return x*x*(3-2*x)
 IM={k:Image.open(f'{D}/img/{k}.png').convert('RGB').resize((int(W*1.25),int(H*1.25)),Image.LANCZOS) for k in range(1,7)}
 import os
-CLIP={0:(1,1.6),1:(2,3.3),2:(3,0.8)}   # scene -> (clip folder, start offset s)
+CLIP={0:(1,0.2),1:(2,3.0),2:(3,0.6)}   # scene -> (clip folder, start offset s)
 CF={c:sorted(os.listdir(f'{D}/cf{c}')) for c,_ in CLIP.values()}
 def clipframe(i,lt):
     c,off=CLIP[i]; fs=CF[c]; n=min(len(fs)-1,int((off+lt)*30))
