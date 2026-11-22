@@ -50,8 +50,7 @@ def person_front(dr,x,y,mood=0,look=0,dark=0.0,s=1.0,lamp=False,t=0.0):
     fw,fh=0.33*k,0.22*k; wv=math.sin(t*5)*0.03*k
     for j,colf in enumerate(((0,85,164),(255,255,255),(239,65,53))):
         x0=hx-fw+j*fw/3; x1=x0+fw/3
-        dr.poly([(x0,hy-0.62*k+wv*(j/3)),(x1,hy-0.62*k+wv*((j+1)/3)),(x1,hy-0.62*k+fh+wv*((j+1)/3)),(x0,hy-0.62*k+fh+wv*(j/3))],fill=c(colf))
-    dr.rect((hx-fw,hy-0.62*k,hx,hy-0.62*k+fh),outline=OUT,width=1.2)
+        dr.poly([(x0,hy-0.62*k+wv*((3-j)/3)),(x1,hy-0.62*k+wv*((2-j)/3)),(x1,hy-0.62*k+fh+wv*((2-j)/3)),(x0,hy-0.62*k+fh+wv*((3-j)/3))],fill=c(colf))
     dr.ellipse((hx-0.045*k,hy-0.03*k,hx+0.045*k,hy+0.06*k),fill=skin,outline=OUT,width=1)
     if lamp:
         dr.rrect((x+0.2*k,y-1.55*k,x+0.36*k,y-1.0*k),int(0.07*k),fill=hood_d,outline=OUT,width=1.5); dr.rrect((x+0.24*k,y-1.7*k,x+0.34*k,y-1.52*k),3,fill=(30,30,34),outline=OUT,width=1)

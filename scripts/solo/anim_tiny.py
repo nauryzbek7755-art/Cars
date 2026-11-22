@@ -22,8 +22,7 @@ def table_bg(t,edge=False,dark=0.0):
         yy=top+14+k*k*1.3; dr.arc((-200+((k*137)%300),yy,W+200,yy+40),190,350,fill=(140,90,50),width=3)
     for (cx,cy,r) in ((120,1600,10),(860,1700,14),(980,1450,8),(400,1820,9)): dr.ellipse((cx-r,cy-r*0.7,cx+r,cy+r*0.7),fill=(214,170,110),outline=OUT,width=1)  # crumbs
     # giant sugar cube + cup in background
-    dr.rect((60,780,360,1180),fill=(250,250,252),outline=OUT,width=3)
-    for k in range(40): dr.ellipse((70+(k*67)%280,790+(k*53)%380,76+(k*67)%280,796+(k*53)%380),fill=(230,230,236))
+    sugar(dr,60,830,330,1180)
     dr.rrect((700,640,1180,1180),60,fill=(220,70,60),outline=OUT,width=4); dr.rect((700,640,1180,700),fill=(240,100,90))
     img=im.convert('RGB')
     if dark>0: img=Image.fromarray((np.asarray(img,np.float32)*(1-dark)).astype(np.uint8))

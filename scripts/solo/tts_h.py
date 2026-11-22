@@ -8,5 +8,8 @@ async def one(i,t):
         elif ch["type"]=="WordBoundary": words.append(dict(t=ch["offset"]/1e7,d=ch["duration"]/1e7,w=ch["text"]))
     open(f"{out}/l{i:02d}.mp3","wb").write(audio); json.dump(words,open(f"{out}/l{i:02d}.json","w"),ensure_ascii=False)
 async def main():
-    for i,t in enumerate(lines): await one(i,t)
+    for i,t in enumerate(lines):
+        for k in range(8):
+            try: await one(i,t); break
+            except Exception as e: print('retry',i,e,flush=True); await asyncio.sleep(3)
 asyncio.run(main())
