@@ -1,0 +1,10 @@
+[
+ {"scene":0,"who":"croissant","text":"Baguette… veux-tu m'épouser ?","voice":"fr-FR-HenriNeural","rate":"-8%","pitch":"+6Hz"},
+ {"scene":0,"who":"baguette","text":"Oh mon Dieu… Oui ! Oui, mille fois oui !","voice":"fr-FR-EloiseNeural","rate":"+12%","pitch":"+8Hz"},
+ {"scene":1,"who":"croissant","text":"Elle est à toi, mon amour.","voice":"fr-FR-HenriNeural","rate":"-10%","pitch":"+4Hz"},
+ {"scene":2,"who":"camembert","text":"Profite bien, petit croissant… Ça ne va pas durer.","voice":"fr-FR-RemyMultilingualNeural","rate":"-18%","pitch":"-12Hz"},
+ {"scene":3,"who":"croissant","text":"Non ! Non, non, non ! Ma boulangerie !","voice":"fr-FR-HenriNeural","rate":"+22%","pitch":"+14Hz"},
+ {"scene":4,"who":"croissant","text":"Du camembert… ?","voice":"fr-FR-HenriNeural","rate":"-20%","pitch":"-4Hz"},
+ {"scene":5,"who":"croissant","text":"Camembert… Tu vas me le payer !","voice":"fr-FR-HenriNeural","rate":"+6%","pitch":"-6Hz"},
+ {"scene":6,"who":"camembert","text":"Hé hé hé… On verra bien.","voice":"fr-FR-RemyMultilingualNeural","rate":"-15%","pitch":"-14Hz"}
+]
