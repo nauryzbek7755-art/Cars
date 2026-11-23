@@ -32,11 +32,30 @@ function arcTriomphe(x,base,h){const w=h*0.88,L=x-w/2,top=base-h;let s=`<g filte
   for(const sd of [-1,1]){const px=x+sd*w*0.33;s+=`<rect x="${px-w*0.1}" y="${base-h*0.55}" width="${w*0.2}" height="${h*0.28}" fill="#dcc4a0"/><rect x="${px-w*0.08}" y="${base-h*0.53}" width="${w*0.16}" height="${h*0.24}" fill="#cbb08a"/>`;}
   for(let k=0;k<14;k++) s+=`<rect x="${L+w*k/14+3}" y="${top+h*0.04}" width="${w/14-6}" height="${h*0.06}" fill="#d8c19c"/>`;
   return s+`<rect x="${L}" y="${top}" width="${w}" height="${h}" fill="url(#wallsh)"/></g>`}
-function convertible(x,y,s_,t){const b=Math.sin(t*30)*1.5;return `<g transform="translate(${x},${y+b}) scale(${s_})" filter="url(#ds)">
-<path d="M-260,-40 Q-262,-110 -200,-118 L-90,-122 L-40,-128 L60,-128 L150,-120 Q250,-112 262,-70 L264,-40Z" fill="url(#carRed)"/>
-<path d="M-60,-128 L-20,-190 L-8,-190 L-40,-128Z" fill="#30343f"/><path d="M-54,-130 L-20,-184 L-10,-184 L-42,-130Z" fill="url(#glass)" opacity=".7"/>
-<rect x="-250" y="-96" width="500" height="8" fill="#fff" opacity=".35"/><rect x="230" y="-100" width="30" height="14" rx="4" fill="#fff7c0"/><rect x="-262" y="-98" width="18" height="12" rx="3" fill="#ff3b3b"/>
-${[-160,160].map(wx=>`<g transform="translate(${wx},-38) rotate(${t*900})"><circle r="52" fill="#16161c"/><circle r="30" fill="#c9cdd8"/>${[0,72,144,216,288].map(a=>`<rect x="-4" y="-28" width="8" height="26" fill="#8a8fa0" transform="rotate(${a})"/>`).join('')}<circle r="8" fill="#555"/></g>`).join('')}
+function wheel(wx,t){return `<g transform="translate(${wx},-78)"><circle r="80" fill="#121218"/><circle r="72" fill="#22222a"/><circle r="56" fill="#cfd4de"/><circle r="52" fill="#9aa2b2"/>
+<g transform="rotate(${t*1100})">${[0,72,144,216,288].map(a=>`<path d="M-7,-8 L-11,-48 L11,-48 L7,-8Z" fill="#e8ecf3" transform="rotate(${a})"/>`).join('')}</g>
+<circle r="52" fill="none" stroke="#fff" stroke-opacity=".25" stroke-width="4"/><rect x="18" y="-30" width="16" height="30" rx="5" fill="#e23a3a"/><circle r="12" fill="#5a6070"/><circle r="5" fill="#cfd4de"/></g>`}
+function convertible(x,y,s_,t,heroSVG=''){const b=Math.sin(t*28)*1.5;
+ const body="M-500,-62 Q-512,-110 -500,-168 Q-492,-196 -455,-202 L-150,-212 L230,-210 Q330,-206 440,-180 Q500,-166 512,-128 Q520,-90 512,-62 L415,-62 A92,92 0 0 0 245,-62 L-235,-62 A92,92 0 0 0 -405,-62Z";
+ return `<g transform="translate(${x},${y+b}) scale(${s_})">
+<ellipse cx="0" cy="4" rx="560" ry="26" fill="#000" opacity=".35" filter="url(#b5)"/>
+<rect x="-110" y="-320" width="70" height="120" rx="30" fill="#c98b4e"/><rect x="-100" y="-310" width="50" height="40" rx="18" fill="#dba06a"/>
+${heroSVG}
+<path d="${body}" fill="url(#carRed)"/>
+<path d="M-490,-150 Q-300,-178 -60,-176 L240,-174 Q380,-170 480,-140" stroke="#ff9a9e" stroke-width="7" fill="none" stroke-linecap="round" opacity=".8"/>
+<path d="M-470,-120 Q-200,-130 60,-128 Q300,-126 500,-100" stroke="#8c0d1a" stroke-width="3" fill="none" opacity=".6"/>
+<path d="M-455,-202 L-150,-212 L230,-210 Q330,-206 440,-180" stroke="#ffd0d2" stroke-width="4" fill="none" opacity=".7"/>
+<line x1="-40" y1="-206" x2="-38" y2="-70" stroke="#8c0d1a" stroke-width="3"/><line x1="225" y1="-206" x2="228" y2="-75" stroke="#8c0d1a" stroke-width="3"/>
+<rect x="150" y="-170" width="46" height="9" rx="4" fill="#e8ecf3"/>
+<path d="M232,-212 L140,-335 L156,-338 L250,-214Z" fill="#2a2d38"/><path d="M226,-214 L150,-318 L168,-320 L240,-214Z" fill="url(#glass)" opacity=".75"/>
+<path d="M200,-226 q24,-10 30,4 l-22,6Z" fill="#c21e28" stroke="#7a1018" stroke-width="2"/>
+<rect x="-440" y="-80" width="880" height="10" rx="5" fill="#e8ecf3"/><rect x="-440" y="-80" width="880" height="3" fill="#fff"/>
+<path d="M470,-160 Q505,-150 508,-128 L478,-126 Q462,-140 470,-160Z" fill="#fff6c8"/><circle cx="488" cy="-140" r="10" fill="#fff"/>
+<rect x="-506" y="-176" width="16" height="34" rx="6" fill="#ff2e3b"/><rect x="-506" y="-176" width="16" height="10" rx="4" fill="#ffb0b5"/>
+<rect x="-500" y="-60" width="70" height="14" rx="7" fill="#d9dde6"/><rect x="430" y="-62" width="85" height="14" rx="7" fill="#d9dde6"/>
+<ellipse cx="-468" cy="-48" rx="16" ry="8" fill="#555"/>
+${wheel(-320,t)}${wheel(330,t)}
+<path d="M-60,-300 Q200,-360 420,-250" stroke="#fff" stroke-width="10" fill="none" opacity=".0"/>
 </g>`}
 function avenueTrees(t,speed,gy){let s='';const sp=t*speed;for(let k=-2;k<9;k++){const x=((k*260-sp)%(260*9)+260*9)%(260*9)-260;s+=`<g transform="translate(${x},${gy})">${tree(0,1.6,k+40)}</g>`;}return s}
 function speedLines(t,y0,y1){let s='';for(let k=0;k<14;k++){const y=y0+rnd(k)*(y1-y0),x=((rnd(k+3)*1400-t*2600)%1400+1400)%1400-200;s+=`<rect x="${x}" y="${y}" width="${160+rnd(k)*200}" height="4" rx="2" fill="#fff" opacity=".7"/>`;}return s}
@@ -79,9 +98,8 @@ function render(t){
     s+=avenueTrees(t,520,1260);
     for(let k=0;k<8;k++){const x=((k*190-t*1900)%1520+1520)%1520-200;s+=`<rect x="${x}" y="1640" width="110" height="14" fill="#f4efe6"/>`;}
     s+=speedLines(t,1300,1800);
-    const hx=470,hy=1975;
-    s+=hero(hx,hy,330,{t,sit:true,mood:'happy',armL:150+Math.sin(t*8)*10,armR:-150-Math.sin(t*8)*10,look:[0,-0.6],blink});
-    s+=convertible(540,1820,1.05,t);
+    const K=230, hs=hero(-20,-150+0.8*K,K,{t,sit:true,mood:'happy',armL:150+Math.sin(t*8)*10,armR:-150-Math.sin(t*8)*10,look:[0,-0.6],blink});
+    s+=convertible(560,1800,1.0,t,hs);
     s+=bigText([['PARIS EST À TOI !',96,'#ffd45a']],330,back((t-S[1]-0.6)/0.4));
   } else if(i===2||i===3){
     s+=sky('skyGold',t)+louvre(1250);
@@ -98,9 +116,13 @@ function render(t){
     s+=`<rect width="1080" height="1920" fill="url(#skyNight)"/>`+stars(t)+streetBG('night',off,0,t,0);
     const fl=t>11.1&&t<11.5?(Math.sin(t*90)>0?1:0.3):1;
     if(off>0.9) s+=`<rect width="1080" height="1920" fill="#000" opacity=".25"/>`;
-    const sweep=Math.sin(lt*1.6)*25;
-    s+=`<g transform="rotate(${sweep} 700 1350)"><polygon points="700,1350 1250,1050 1250,1650" fill="url(#beam)" opacity="${off>0.5?0.9:0.35}"/></g>`;
-    s+=hero(520,1820,380,{t,mood:off>0.3?'scared':'neutral',armR:-75,flash:true,look:[off>0.3?Math.sin(t*5):0.8,0],blink:off<0.3&&blink});
+    const K=380,HX=520,HY=1820,aa=-75+Math.sin(lt*1.6)*14, ar=aa*Math.PI/180;
+    const shx=HX+0.27*K, shy=HY-1.38*K, hx=shx-Math.sin(ar)*0.54*K, hy=shy+Math.cos(ar)*0.54*K;
+    const dx=-Math.sin(ar),dy=Math.cos(ar),px=-dy,py=dx,L=900,Wb=260;
+    s+=`<polygon points="${hx},${hy} ${hx+dx*L+px*Wb},${hy+dy*L+py*Wb} ${hx+dx*L-px*Wb},${hy+dy*L-py*Wb}" fill="#fff8d0" opacity="${off>0.5?0.32:0.14}" filter="url(#b12)"/>`;
+    s+=`<polygon points="${hx},${hy} ${hx+dx*L+px*Wb*.55},${hy+dy*L+py*Wb*.55} ${hx+dx*L-px*Wb*.55},${hy+dy*L-py*Wb*.55}" fill="#fffbe6" opacity="${off>0.5?0.38:0.16}" filter="url(#b5)"/>`;
+    s+=hero(HX,HY,K,{t,mood:off>0.3?'scared':'neutral',armR:aa,flash:true,look:[off>0.3?Math.sin(t*5):0.8,0],blink:off<0.3&&blink});
+    s+=`<circle cx="${hx}" cy="${hy}" r="60" fill="url(#lampG)" opacity="${off>0.5?1:0.5}"/>`;
     if(off>0.2) s+=bigText([['BLACKOUT',120,'#ff5a5a']],330,back((t-11.3)/0.35)*(fl));
   } else if(i===5){
     const g=ease(lt/1.6);
